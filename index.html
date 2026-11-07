@@ -52,6 +52,10 @@ section{padding:100px 30px}
 .price{font-size:2rem;font-weight:bold;margin:15px 0}
 .perks{list-style:none;color:#b8c0d0;font-size:.95rem;margin:15px 0 20px;flex:1}
 .rank .btn{margin:0;padding:12px 20px}
+.rank{cursor:pointer;transition:.3s}
+.rank:hover{transform:translateY(-5px)}
+.store-note{text-align:center;margin-top:30px;color:#b8c0d0}
+.store-note a{color:#55ff55;font-weight:bold}
 
 .discord-card,.rules-card{background:#1a2238;padding:40px;border-radius:15px;text-align:center;max-width:800px;margin:auto}
 .discord-card p,.rules-card p{margin:15px 0 25px;color:#d0d6e0}
@@ -107,7 +111,7 @@ html{scroll-behavior:auto}
 <div class="buttons">
 <a href="https://discord.gg/jgZXqYFjNd" target="_blank" rel="noopener" class="btn primary">Join Discord</a>
 <a href="#ip" class="btn secondary">Get Server IP</a>
-<a href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener" class="btn primary">Visit Store</a>
+<a href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener" class="btn primary" data-store>Visit Store</a>
 </div>
 </div>
 </section>
@@ -159,12 +163,13 @@ html{scroll-behavior:auto}
 <div class="container">
 <h2 class="section-title">Store</h2>
 <div class="rank-grid">
-<div class="rank"><h3>VIP</h3><div class="price">$6.99</div><p>Entry level supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP</a></div>
-<div class="rank"><h3>VIP+</h3><div class="price">$14.99</div><p>Additional perks and bonuses.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP+</a></div>
-<div class="rank"><h3>MVP</h3><div class="price">$29.99</div><p>Mid-tier supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP</a></div>
-<div class="rank"><h3>MVP+</h3><div class="price">$44.99</div><p>Top one-time purchase rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP+</a></div>
-<div class="rank"><h3>MVP++</h3><div class="price">$7.99/mo</div><p>Monthly subscription. Requires MVP+.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Subscribe</a></div>
+<div class="rank"><h3>VIP</h3><div class="price">$6.99</div><p>Entry level supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" data-rank="VIP" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP</a></div>
+<div class="rank"><h3>VIP+</h3><div class="price">$14.99</div><p>Additional perks and bonuses.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" data-rank="VIP+" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP+</a></div>
+<div class="rank"><h3>MVP</h3><div class="price">$29.99</div><p>Mid-tier supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" data-rank="MVP" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP</a></div>
+<div class="rank"><h3>MVP+</h3><div class="price">$44.99</div><p>Top one-time purchase rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" data-rank="MVP+" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP+</a></div>
+<div class="rank"><h3>MVP++</h3><div class="price">$7.99/mo</div><p>Monthly subscription. Requires MVP+.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" data-rank="MVP++" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Subscribe</a></div>
 </div>
+<p class="store-note">Visit the full store at <a href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener" data-store>vandornetwork.craftingstore.net</a></p>
 </div>
 </section>
 
@@ -205,6 +210,26 @@ const IPS = {
   java: "olds-thereon.tun.ply.gg",
   bedrock: "ambulance-almost.tun.ply.gg:59197"
 };
+
+// Store settings. When a rank has its own page, paste its link below.
+const STORE_URL = "https://vandornetwork.craftingstore.net/";
+const RANK_LINKS = {
+  "VIP":   "",   // e.g. "https://vandornetwork.craftingstore.net/package/12345"
+  "VIP+":  "",
+  "MVP":   "",
+  "MVP+":  "",
+  "MVP++": ""
+};
+// Empty rank link = send to the main store
+document.querySelectorAll("[data-store]").forEach(a => { a.href = STORE_URL; });
+document.querySelectorAll(".rank").forEach(card => {
+  const link = card.querySelector("[data-rank]");
+  link.href = RANK_LINKS[link.dataset.rank] || STORE_URL;
+  card.addEventListener("click", e => {
+    if (e.target.closest("a")) return;
+    window.open(link.href, "_blank", "noopener");
+  });
+});
 
 document.querySelectorAll("[data-ip]").forEach(el => { el.textContent = IPS[el.dataset.ip]; });
 
