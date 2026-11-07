@@ -3,280 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VandorNetwork</title>
-
+<title>VandorNetwork – Minecraft Survival Server</title>
+<meta name="description" content="VandorNetwork is a community-driven Minecraft survival network with economy and quests. Join on Java or Bedrock.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛏️</text></svg>">
 <style>
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{background:#0b1020;color:#fff;line-height:1.6}
+a:focus-visible,button:focus-visible{outline:3px solid #55ff55;outline-offset:3px}
 
-html{
-scroll-behavior:smooth;
-}
+header{position:sticky;top:0;z-index:1000;background:rgba(10,15,30,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+nav{max-width:1400px;margin:auto;padding:20px;display:flex;justify-content:space-between;align-items:center;position:relative}
+.logo{font-size:2rem;font-weight:800;color:#55ff55}
+.nav-links a{color:#fff;text-decoration:none;margin-left:25px;font-weight:600;transition:.3s}
+.nav-links a:hover{color:#55ff55}
+.menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:1.5rem;width:46px;height:46px;border-radius:8px;cursor:pointer}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
-}
+section{padding:100px 30px}
+.container{max-width:1200px;margin:auto}
+.hero{min-height:90vh;display:flex;justify-content:center;align-items:center;text-align:center;background:linear-gradient(rgba(5,10,20,.8),rgba(5,10,20,.95))}
+.hero h1{font-size:5rem;color:#55ff55;margin-bottom:20px}
+.hero h2{font-size:2rem;margin-bottom:20px}
+.hero p{font-size:1.2rem;color:#b8c0d0;max-width:700px;margin:auto}
+.buttons{margin-top:40px}
+.btn{display:inline-block;padding:15px 30px;margin:10px;text-decoration:none;border-radius:10px;font-weight:bold;transition:.3s;border:none;cursor:pointer;font-size:1rem}
+.primary{background:#55ff55;color:#000}
+.secondary{background:#20283c;color:#fff}
+.primary:hover,.secondary:hover{transform:translateY(-3px)}
 
-body{
-background:#0b1020;
-color:white;
-line-height:1.6;
-}
+.section-title{text-align:center;font-size:3rem;color:#55ff55;margin-bottom:40px}
+.about,.store{background:#11182a}
+.about p{font-size:1.15rem;color:#d0d6e0;max-width:900px;margin:0 auto 1em;text-align:center}
 
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(10,15,30,.95);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px}
+.feature-card{background:#1a2238;padding:30px;border-radius:15px;text-align:center;transition:.3s}
+.feature-card:hover{transform:translateY(-5px)}
+.feature-card h3{margin-bottom:10px;color:#55ff55}
 
-nav{
-max-width:1400px;
-margin:auto;
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+.ip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}
+.ip-card{background:#1a2238;padding:30px;border-radius:15px;text-align:center}
+.ip-card code{display:block;margin-top:10px;font-size:1.1rem;word-break:break-all;color:#d0d6e0;font-family:Consolas,monospace}
+.copy-btn{margin-top:20px;background:#55ff55;border:none;padding:12px 24px;border-radius:8px;font-weight:bold;cursor:pointer;min-width:170px}
+.copy-btn.done{background:#fff}
 
-.logo{
-font-size:2rem;
-font-weight:800;
-color:#55ff55;
-}
+.rank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.rank{background:#1a2238;padding:30px;border-radius:15px;text-align:center;display:flex;flex-direction:column}
+.rank h3{color:#55ff55;margin-bottom:10px}
+.price{font-size:2rem;font-weight:bold;margin:15px 0}
+.perks{list-style:none;color:#b8c0d0;font-size:.95rem;margin:15px 0 20px;flex:1}
+.rank .btn{margin:0;padding:12px 20px}
 
-.nav-links a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-weight:600;
-transition:.3s;
-}
+.discord-card,.rules-card{background:#1a2238;padding:40px;border-radius:15px;text-align:center;max-width:800px;margin:auto}
+.discord-card p,.rules-card p{margin:15px 0 25px;color:#d0d6e0}
+.rules-card p{margin-bottom:0}
 
-.nav-links a:hover{
-color:#55ff55;
-}
+footer{background:#070b15;padding:50px 30px;text-align:center;font-size:.95rem;color:#9aa4bc}
+footer h2{color:#55ff55;margin-bottom:15px}
+footer p{margin-bottom:12px}
+.disclaimer{font-size:.85rem;max-width:700px;margin:0 auto 12px}
 
-section{
-padding:100px 30px;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-.hero{
-min-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:
-linear-gradient(rgba(5,10,20,.8),rgba(5,10,20,.95));
-}
-
-.hero h1{
-font-size:5rem;
-color:#55ff55;
-margin-bottom:20px;
-}
-
-.hero h2{
-font-size:2rem;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:1.2rem;
-color:#b8c0d0;
-max-width:700px;
-margin:auto;
-}
-
-.buttons{
-margin-top:40px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 30px;
-margin:10px;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-transition:.3s;
-}
-
-.primary{
-background:#55ff55;
-color:black;
-}
-
-.primary:hover{
-transform:translateY(-3px);
-}
-
-.secondary{
-background:#20283c;
-color:white;
-}
-
-.secondary:hover{
-transform:translateY(-3px);
-}
-
-.section-title{
-text-align:center;
-font-size:3rem;
-color:#55ff55;
-margin-bottom:40px;
-}
-
-.about{
-background:#11182a;
-}
-
-.about p{
-font-size:1.15rem;
-color:#d0d6e0;
-max-width:900px;
-margin:auto;
-text-align:center;
-}
-
-.features-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.feature-card{
-background:#1a2238;
-padding:30px;
-border-radius:15px;
-text-align:center;
-transition:.3s;
-}
-
-.feature-card:hover{
-transform:translateY(-5px);
-}
-
-.feature-card h3{
-margin-bottom:10px;
-color:#55ff55;
-}
-
-.ip-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
-
-.ip-card{
-background:#1a2238;
-padding:30px;
-border-radius:15px;
-text-align:center;
-}
-
-.copy-btn{
-margin-top:20px;
-background:#55ff55;
-border:none;
-padding:12px 24px;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.store{
-background:#11182a;
-}
-
-.rank-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.rank{
-background:#1a2238;
-padding:30px;
-border-radius:15px;
-text-align:center;
-}
-
-.rank h3{
-color:#55ff55;
-margin-bottom:10px;
-}
-
-.price{
-font-size:2rem;
-font-weight:bold;
-margin:15px 0;
-}
-
-.discord-card{
-background:#1a2238;
-padding:40px;
-border-radius:15px;
-text-align:center;
-max-width:800px;
-margin:auto;
-}
-
-.rules-card{
-background:#1a2238;
-padding:40px;
-border-radius:15px;
-text-align:center;
-max-width:800px;
-margin:auto;
-}
-
-footer{
-background:#070b15;
-padding:50px;
-text-align:center;
-font-size:.95rem;
-color:#9aa4bc;
-}
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:#55ff55;color:#000;padding:12px 22px;border-radius:8px;font-weight:bold;opacity:0;pointer-events:none;transition:.3s;z-index:2000}
+#toast.show{opacity:1;transform:translate(-50%,0)}
 
 @media(max-width:800px){
-
-.hero h1{
-font-size:3rem;
+.hero h1{font-size:3rem}
+.hero h2{font-size:1.3rem}
+.section-title{font-size:2.2rem}
+section{padding:70px 20px}
+.menu-btn{display:block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(10,15,30,.98);flex-direction:column;padding:10px 20px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-links.open{display:flex}
+.nav-links a{margin:0;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
 }
-
-.hero h2{
-font-size:1.3rem;
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*{transition:none!important}
 }
-
-.nav-links{
-display:none;
-}
-
-}
-
 </style>
 </head>
 <body>
 
 <header>
-<nav>
-
-<div class="logo">
-VandorNetwork
-</div>
-
-<div class="nav-links">
+<nav aria-label="Main">
+<div class="logo">VandorNetwork</div>
+<button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+<div class="nav-links" id="navLinks">
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#ip">Server IP</a>
@@ -284,310 +95,172 @@ VandorNetwork
 <a href="#discord">Discord</a>
 <a href="#rules">Rules</a>
 </div>
-
 </nav>
 </header>
 
+<main>
 <section class="hero" id="home">
-
 <div>
-
 <h1>VandorNetwork</h1>
-
 <h2>Built by One Person, Powered by Passion</h2>
-
-<p>
-A custom Minecraft network focused on community,
-progression, learning, and creating a fun experience
-for everyone.
-</p>
-
+<p>A custom Minecraft network focused on community, progression, learning, and creating a fun experience for everyone.</p>
 <div class="buttons">
-
-<a href="https://discord.gg/jgZXqYFjNd"
-target="_blank"
-class="btn primary">
-Join Discord
-</a>
-
-<a href="#ip"
-class="btn secondary">
-Get Server IP
-</a>
-
-<a href="https://vandornetwork.craftingstore.net/"
-target="_blank"
-class="btn primary">
-Visit Store
-</a>
-
+<a href="https://discord.gg/jgZXqYFjNd" target="_blank" rel="noopener" class="btn primary">Join Discord</a>
+<a href="#ip" class="btn secondary">Get Server IP</a>
+<a href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener" class="btn primary">Visit Store</a>
 </div>
-
 </div>
-
 </section>
 
 <section class="about" id="about">
-
 <div class="container">
-
-<h2 class="section-title">
-About VandorNetwork
-</h2>
-
-<p>
-
-VandorNetwork was started on June 15th as a personal
-passion project and learning experience.
-
-The goal of this network is not to become the next massive
-Minecraft server overnight, but to create a fun community
-while learning how server development, management, and
-network infrastructure work.
-
-Everything has been built independently with personal time,
-effort, and a willingness to learn.
-
-As the network grows, new systems, improvements, and features
-will be added. Since this is a passion project, updates may
-take time, but every update is intended to improve the overall
-player experience.
-
-The current goal is reaching beta release and finding bugs
-through real player testing.
-
-</p>
-
+<h2 class="section-title">About VandorNetwork</h2>
+<p>VandorNetwork was started on June 15th as a personal passion project and learning experience.</p>
+<p>The goal of this network is not to become the next massive Minecraft server overnight, but to create a fun community while learning how server development, management, and network infrastructure work.</p>
+<p>Everything has been built independently with personal time, effort, and a willingness to learn.</p>
+<p>As the network grows, new systems, improvements, and features will be added. Since this is a passion project, updates may take time, but every update is intended to improve the overall player experience.</p>
+<p>The current goal is reaching beta release and finding bugs through real player testing.</p>
 </div>
-
 </section>
 
 <section>
-
 <div class="container">
-
-<h2 class="section-title">
-Features
-</h2>
-
+<h2 class="section-title">Features</h2>
 <div class="features-grid">
-
-<div class="feature-card">
-<h3>⚔ Survival</h3>
-<p>Build, explore, trade and play your way.</p>
+<div class="feature-card"><h3>⚔ Survival</h3><p>Build, explore, trade and play your way.</p></div>
+<div class="feature-card"><h3>💰 Economy</h3><p>Build wealth and progress naturally.</p></div>
+<div class="feature-card"><h3>📜 Quests</h3><p>Complete objectives for rewards.</p></div>
+<div class="feature-card"><h3>👹 Custom Bosses</h3><p>Planned after future updates.</p></div>
+<div class="feature-card"><h3>🛠 Active Development</h3><p>Constant improvements and bug fixes.</p></div>
+<div class="feature-card"><h3>🌎 Community Driven</h3><p>Feedback helps shape the network.</p></div>
 </div>
-
-<div class="feature-card">
-<h3>💰 Economy</h3>
-<p>Build wealth and progress naturally.</p>
 </div>
-
-<div class="feature-card">
-<h3>📜 Quests</h3>
-<p>Complete objectives for rewards.</p>
-</div>
-
-<div class="feature-card">
-<h3>👹 Custom Bosses</h3>
-<p>Planned after future updates.</p>
-</div>
-
-<div class="feature-card">
-<h3>🛠 Active Development</h3>
-<p>Constant improvements and bug fixes.</p>
-</div>
-
-<div class="feature-card">
-<h3>🌎 Community Driven</h3>
-<p>Feedback helps shape the network.</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <section id="ip">
-
 <div class="container">
-
-<h2 class="section-title">
-Server IP
-</h2>
-
+<h2 class="section-title">Server IP</h2>
 <div class="ip-grid">
-
 <div class="ip-card">
-
 <h3>Java Edition</h3>
-
-<p id="javaip">
-olds-thereon.tun.ply.gg
-</p>
-
-<button class="copy-btn" onclick="copyJava()">
-Copy Java IP
-</button>
-
+<code data-ip="java"></code>
+<button class="copy-btn" data-copy="java">Copy Java IP</button>
 </div>
-
 <div class="ip-card">
-
 <h3>Bedrock Edition</h3>
-
-<p id="bedrockip">
-ambulance-almost.tun.ply.gg:59197
-</p>
-
-<button class="copy-btn" onclick="copyBedrock()">
-Copy Bedrock IP
-</button>
-
+<code data-ip="bedrock"></code>
+<button class="copy-btn" data-copy="bedrock">Copy Bedrock IP</button>
 </div>
-
 </div>
-
 </div>
-
 </section>
 
 <section class="store" id="store">
-
 <div class="container">
-
-<h2 class="section-title">
-Store
-</h2>
-
+<h2 class="section-title">Store</h2>
 <div class="rank-grid">
-
-<div class="rank">
-<h3>VIP</h3>
-<div class="price">$6.99</div>
-<p>Entry level supporter rank.</p>
+<div class="rank"><h3>VIP</h3><div class="price">$6.99</div><p>Entry level supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP</a></div>
+<div class="rank"><h3>VIP+</h3><div class="price">$14.99</div><p>Additional perks and bonuses.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy VIP+</a></div>
+<div class="rank"><h3>MVP</h3><div class="price">$29.99</div><p>Mid-tier supporter rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP</a></div>
+<div class="rank"><h3>MVP+</h3><div class="price">$44.99</div><p>Top one-time purchase rank.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Buy MVP+</a></div>
+<div class="rank"><h3>MVP++</h3><div class="price">$7.99/mo</div><p>Monthly subscription. Requires MVP+.</p><ul class="perks"><li>Perk list coming soon</li></ul><a class="btn primary store-link" href="https://vandornetwork.craftingstore.net/" target="_blank" rel="noopener">Subscribe</a></div>
 </div>
-
-<div class="rank">
-<h3>VIP+</h3>
-<div class="price">$14.99</div>
-<p>Additional perks and bonuses.</p>
 </div>
-
-<div class="rank">
-<h3>MVP</h3>
-<div class="price">$29.99</div>
-<p>Mid-tier supporter rank.</p>
-</div>
-
-<div class="rank">
-<h3>MVP+</h3>
-<div class="price">$44.99</div>
-<p>Ultimate lifetime rank.</p>
-</div>
-
-<div class="rank">
-<h3>MVP++</h3>
-<div class="price">$7.99/mo</div>
-<p>Requires MVP+. Subscription rank.</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
 <section id="discord">
-
 <div class="container">
-
-<h2 class="section-title">
-Discord
-</h2>
-
+<h2 class="section-title">Discord</h2>
 <div class="discord-card">
-
 <h3>Join The Community</h3>
-
-<br>
-
-<p>
-Get updates, report bugs, suggest features,
-chat with players and help shape the future
-of VandorNetwork.
-</p>
-
-<br><br>
-
-<a class="btn primary" href="https://discord.gg/jgZXqYFjNd" target="_blank">
-Join Discord
-</a>
-
+<p>Get updates, report bugs, suggest features, chat with players and help shape the future of VandorNetwork.</p>
+<a class="btn primary" href="https://discord.gg/jgZXqYFjNd" target="_blank" rel="noopener">Join Discord</a>
 </div>
-
 </div>
-
 </section>
 
 <section id="rules">
-
 <div class="container">
-
-<h2 class="section-title">
-Rules
-</h2>
-
+<h2 class="section-title">Rules</h2>
 <div class="rules-card">
-
 <h3>Coming Soon</h3>
-
-<br>
-
-<p>
-Server and Discord rules will be published
-before the full beta launch.
-</p>
-
+<p>Server and Discord rules will be published before the full beta launch.</p>
 </div>
-
 </div>
-
 </section>
+</main>
 
 <footer>
-
-<h2 style="color:#55ff55;">
-VandorNetwork
-</h2>
-
-<br>
-
-<p>
-Built by one person with time, passion, and a desire to learn.
-</p>
-
-<br>
-
-<p>
-© VandorNetwork
-</p>
-
+<h2>VandorNetwork</h2>
+<p>Built by one person with time, passion, and a desire to learn.</p>
+<p class="disclaimer">VandorNetwork is not an official Minecraft service and is not approved by or associated with Mojang or Microsoft. Purchases are optional and comply with the Minecraft EULA; they do not provide any gameplay advantage that violates it.</p>
+<p>© VandorNetwork</p>
 </footer>
 
+<div id="toast" role="status" aria-live="polite"></div>
+
 <script>
+// Edit server IPs here only
+const IPS = {
+  java: "olds-thereon.tun.ply.gg",
+  bedrock: "ambulance-almost.tun.ply.gg:59197"
+};
 
-function copyJava() {
-navigator.clipboard.writeText("olds-thereon.tun.ply.gg");
-alert("Java IP copied!");
+document.querySelectorAll("[data-ip]").forEach(el => { el.textContent = IPS[el.dataset.ip]; });
+
+const toast = document.getElementById("toast");
+let toastTimer;
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2000);
 }
 
-function copyBedrock() {
-navigator.clipboard.writeText("ambulance-almost.tun.ply.gg:59197");
-alert("Bedrock IP copied!");
+function fallbackCopy(text){
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  let ok = false;
+  try { ok = document.execCommand("copy"); } catch(e){}
+  document.body.removeChild(ta);
+  return ok;
 }
 
+document.querySelectorAll("[data-copy]").forEach(btn => {
+  const label = btn.textContent;
+  btn.addEventListener("click", async () => {
+    const text = IPS[btn.dataset.copy];
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(text);
+      ok = true;
+    } catch(e){
+      ok = fallbackCopy(text);
+    }
+    if (ok){
+      btn.textContent = "Copied!";
+      btn.classList.add("done");
+      showToast("IP copied: " + text);
+      setTimeout(() => { btn.textContent = label; btn.classList.remove("done"); }, 2000);
+    } else {
+      showToast("Copy failed. Select the IP manually.");
+    }
+  });
+});
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+function setMenu(open){
+  navLinks.classList.toggle("open", open);
+  menuBtn.setAttribute("aria-expanded", open);
+  menuBtn.textContent = open ? "✕" : "☰";
+}
+menuBtn.addEventListener("click", () => setMenu(!navLinks.classList.contains("open")));
+navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 </script>
-
 </body>
 </html>
