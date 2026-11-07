@@ -1,152 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VandorNetwork</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<title>VandorNetwork</title>
 
-        body {
-            background: #0f1117;
-            color: white;
-        }
+<style>
 
-        header {
-            background: #171b24;
-            padding: 20px;
-            text-align: center;
-        }
+html{
+scroll-behavior:smooth;
+}
 
-        header h1 {
-            color: #55ff55;
-            font-size: 3rem;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-        nav {
-            background: #10141d;
-            padding: 15px;
-            text-align: center;
-        }
+body{
+background:#0b1020;
+color:white;
+line-height:1.6;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(10,15,30,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
 
-        <h1>VandorNetwork</h1>
+nav{
+max-width:1400px;
+margin:auto;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
 
-        .hero {
-            text-align: center;
-            padding: 120px 20px;
-        }
+.logo{
+font-size:2rem;
+font-weight:800;
+color:#55ff55;
+}
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:600;
+transition:.3s;
+}
 
-        .hero p {
-            color: #bdbdbd;
-            margin: 10px 0;
-        }
+.nav-links a:hover{
+color:#55ff55;
+}
 
-        .store {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            padding: 50px;
-        }
+section{
+padding:100px 30px;
+}
 
-        .card {
-            background: #1a1f2b;
-            width: 250px;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
+.container{
+max-width:1200px;
+margin:auto;
+}
 
-        .card h3 {
-            margin-bottom: 10px;
-        }
+.hero{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(5,10,20,.8),rgba(5,10,20,.95));
+}
 
-        .price {
-            color: #55ff55;
-            font-size: 1.5rem;
-            margin: 15px 0;
-        }
+.hero h1{
+font-size:5rem;
+color:#55ff55;
+margin-bottom:20px;
+}
 
-        button {
-            background: #55ff55;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.hero h2{
+font-size:2rem;
+margin-bottom:20px;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #171b24;
-            margin-top: 50px;
-        }
-    </style>
+.hero p{
+font-size:1.2rem;
+color:#b8c0d0;
+max-width:700px;
+margin:auto;
+}
+
+.buttons{
+margin-top:40px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 30px;
+margin:10px;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+transition:.3s;
+}
+
+.primary{
+background:#55ff55;
+color:black;
+}
+
+.primary:hover{
+transform:translateY(-3px);
+}
+
+.secondary{
+background:#20283c;
+color:white;
+}
+
+.secondary:hover{
+transform:translateY(-3px);
+}
+
+.section-title{
+text-align:center;
+font-size:3rem;
+color:#55ff55;
+margin-bottom:40px;
+}
+
+.about{
+background:#11182a;
+}
+
+.about p{
+font-size:1.15rem;
+color:#d0d6e0;
+max-width:900px;
+margin:auto;
+text-align:center;
+}
+
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:#1a2238;
+padding:30px;
+border-radius:15px;
+text-align:center;
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-5px);
+}
+
+.feature-card h3{
+margin-bottom:10px;
+color:#55ff55;
+}
+
+.ip-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.ip-card{
+background:#1a2238;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+.copy-btn{
+margin-top:20px;
+background:#55ff55;
+border:none;
+padding:12px 24px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.store{
+background:#11182a;
+}
+
+.rank-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.rank{
+background:#1a2238;
+padding:30px;
+border-radius:15px;
+text-align:center;
+}
+
+.rank h3{
+color:#55ff55;
+margin-bottom:10px;
+}
+
+.price{
+font-size:2rem;
+font-weight:bold;
+margin:15px 0;
+}
+
+.discord-card{
+background:#1a2238;
+padding:40px;
+border-radius:15px;
+text-align:center;
+max-width:800px;
+margin:auto;
+}
+
+.rules-card{
+background:#1a2238;
+padding:40px;
+border-radius:15px;
+text-align:center;
+max-width:800px;
+margin:auto;
+}
+
+footer{
+background:#070b15;
+padding:50px;
+text-align:center;
+font-size:.95rem;
+color:#9aa4bc;
+}
+
+@media(max-width:800px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.hero h2{
+font-size:1.3rem;
+}
+
+.nav-links{
+display:none;
+}
+
+}
+
+</style>
 </head>
 <body>
 
 <header>
-    <h1>VandorNetwork</h1>
+<nav>
+
+<div class="logo">
+VandorNetwork
+</div>
+
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#ip">Server IP</a>
+<a href="#store">Store</a>
+<a href="#discord">Discord</a>
+<a href="#rules">Rules</a>
+</div>
+
+</nav>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Store</a>
-    <a href="https://discord.gg/jgZXqYFjNd">Discord</a>
-    <a href="#">Rules</a>
-</nav>
+<section class="hero" id="home">
 
-<section class="hero">
-    <h2>Welcome to VandorNetwork</h2>
-    <p>Custom Minecraft Network</p>
+<div>
 
-    <p><strong>Java:</strong> olds-thereon.tun.ply.gg</p>
-    <p><strong>Bedrock:</strong> ambulance-almost.tun.ply.gg:59197</p>
+<h1>VandorNetwork</h1>
+
+<h2>Built by One Person, Powered by Passion</h2>
+
+<p>
+A custom Minecraft network focused on community,
+progression, learning, and creating a fun experience
+for everyone.
+</p>
+
+<div class="buttons">
+
+<a href="#discord" class="btn primary">
+Join Discord
+</a>
+
+<a href="#ip" class="btn secondary">
+Get Server IP
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section class="store">
+<section class="about" id="about">
 
-    <div class="card">
-        <h3>VIP</h3>
-        <div class="price">$4.99</div>
-        <button>Buy Now</button>
-    </div>
+<div class="container">
 
-    <div class="card">
-        <h3>MVP</h3>
-        <div class="price">$9.99</div>
-        <button>Buy Now</button>
-    </div>
+<h2 class="section-title">
+About VandorNetwork
+</h2>
 
-    <div class="card">
-        <h3>LEGEND</h3>
-        <div class="price">$19.99</div>
-        <button>Buy Now</button>
-    </div>
+<p>
+
+VandorNetwork was started on June 15th as a personal
+passion project and learning experience.
+
+The goal of this network is not to become the next massive
+Minecraft server overnight, but to create a fun community
+while learning how server development, management, and
+network infrastructure work.
+
+Everything has been built independently with personal time,
+effort, and a willingness to learn.
+
+As the network grows, new systems, improvements, and features
+will be added. Since this is a passion project, updates may
+take time, but every update is intended to improve the overall
+player experience.
+
+The current goal is reaching beta release and finding bugs
+through real player testing.
+
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<h2 class="section-title">
+Features
+</h2>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<h3>⚔ Survival</h3>
+<p>Build, explore, trade and play your way.</p>
+</div>
+
+<div class="feature-card">
+<h3>💰 Economy</h3>
+<p>Build wealth and progress naturally.</p>
+</div>
+
+<div class="feature-card">
+<h3>📜 Quests</h3>
+<p>Complete objectives for rewards.</p>
+</div>
+
+<div class="feature-card">
+<h3>👹 Custom Bosses</h3>
+<p>Planned after future updates.</p>
+</div>
+
+<div class="feature-card">
+<h3>🛠 Active Development</h3>
+<p>Constant improvements and bug fixes.</p>
+</div>
+
+<div class="feature-card">
+<h3>🌎 Community Driven</h3>
+<p>Feedback helps shape the network.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="ip">
+
+<div class="container">
+
+<h2 class="section-title">
+Server IP
+</h2>
+
+<div class="ip-grid">
+
+<div class="ip-card">
+
+<h3>Java Edition</h3>
+
+<p id="javaip">
+olds-thereon.tun.ply.gg
+</p>
+
+<button class="copy-btn" onclick="copyJava()">
+Copy Java IP
+</button>
+
+</div>
+
+<div class="ip-card">
+
+<h3>Bedrock Edition</h3>
+
+<p id="bedrockip">
+ambulance-almost.tun.ply.gg:59197
+</p>
+
+<button class="copy-btn" onclick="copyBedrock()">
+Copy Bedrock IP
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="store" id="store">
+
+<div class="container">
+
+<h2 class="section-title">
+Store
+</h2>
+
+<div class="rank-grid">
+
+<div class="rank">
+<h3>VIP</h3>
+<div class="price">$6.99</div>
+<p>Entry level supporter rank.</p>
+</div>
+
+<div class="rank">
+<h3>VIP+</h3>
+<div class="price">$14.99</div>
+<p>Additional perks and bonuses.</p>
+</div>
+
+<div class="rank">
+<h3>MVP</h3>
+<div class="price">$29.99</div>
+<p>Mid-tier supporter rank.</p>
+</div>
+
+<div class="rank">
+<h3>MVP+</h3>
+<div class="price">$44.99</div>
+<p>Ultimate lifetime rank.</p>
+</div>
+
+<div class="rank">
+<h3>MVP++</h3>
+<div class="price">$7.99/mo</div>
+<p>Requires MVP+. Subscription rank.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="discord">
+
+<div class="container">
+
+<h2 class="section-title">
+Discord
+</h2>
+
+<div class="discord-card">
+
+<h3>Join The Community</h3>
+
+<br>
+
+<p>
+Get updates, report bugs, suggest features,
+chat with players and help shape the future
+of VandorNetwork.
+</p>
+
+<br><br>
+
+<a class="btn primary" href="https://discord.gg/jgZXqYFjNd" target="_blank">
+Join Discord
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="rules">
+
+<div class="container">
+
+<h2 class="section-title">
+Rules
+</h2>
+
+<div class="rules-card">
+
+<h3>Coming Soon</h3>
+
+<br>
+
+<p>
+Server and Discord rules will be published
+before the full beta launch.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 <footer>
-    Join our Discord: https://discord.gg/jgZXqYFjNd
+
+<h2 style="color:#55ff55;">
+VandorNetwork
+</h2>
+
+<br>
+
+<p>
+Built by one person with time, passion, and a desire to learn.
+</p>
+
+<br>
+
+<p>
+© VandorNetwork
+</p>
+
 </footer>
+
+<script>
+
+function copyJava() {
+navigator.clipboard.writeText("olds-thereon.tun.ply.gg");
+alert("Java IP copied!");
+}
+
+function copyBedrock() {
+navigator.clipboard.writeText("ambulance-almost.tun.ply.gg:59197");
+alert("Bedrock IP copied!");
+}
+
+</script>
 
 </body>
 </html>
